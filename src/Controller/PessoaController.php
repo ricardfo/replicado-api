@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\HttpFoundation\Response;
+
 class PessoaController extends AbstractController
 {
     /**
@@ -12,8 +14,11 @@ class PessoaController extends AbstractController
      */
     public function servidoresTotalAtivos()
     {
-        $response = [325];
-        return $this->json($response);
+        $response = new Response();
+        $response->setContent(json_encode([321312]));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
 
     /**

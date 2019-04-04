@@ -10,7 +10,7 @@ class IniciacaoCientificaController extends AbstractController
     /**
      * @Route("/iniciacao-cientifica/bolsas/{ano}", defaults={"ano"="current"}, name="iniciacao_cientifica_bolsas")
      */
-    public function index($ano)
+    public function bolsas($ano)
     {
         if($ano = "current") {
             $ano = date("Y");
