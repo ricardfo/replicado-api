@@ -35,6 +35,9 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "monolog/monolog": {
+        "version": "1.24.0"
+    },
     "nikic/php-parser": {
         "version": "v4.2.1"
     },
@@ -171,5 +174,8 @@
     },
     "symfony/yaml": {
         "version": "v4.2.4"
+    },
+    "uspdev/replicado": {
+        "version": "v1.0.2"
     }
 }

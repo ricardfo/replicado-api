@@ -8,13 +8,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class IniciacaoCientificaController extends AbstractController
 {
     /**
-     * @Route("/iniciacao/cientifica", name="iniciacao_cientifica")
+     * @Route("/iniciacao-cientifica/bolsas/{ano}", defaults={"ano"="current"}, name="iniciacao_cientifica_bolsas")
      */
-    public function index()
+    public function index($ano)
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/IniciacaoCientificaController.php',
-        ]);
+        if($ano = "current") {
+            $ano = date("Y");
+        }
+
+        $response = [
+            2010 => [
+                'cnpq' => 32,
+                'fapesp' => 41,
+                'unidade' => 78,
+            ],
+            2011 => [
+                'cnpq' => 21,
+                'fapesp' => 33,
+                'unidade' => 90,
+            ],
+        ];
+
+        return $this->json($response);
     }
 }
