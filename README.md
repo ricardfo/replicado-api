@@ -1,3 +1,5 @@
+# replicado api
+
 API que expõe dados do replicado a partir de requisições http.
 
 Download e instalação:
