@@ -7,6 +7,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\HttpFoundation\Response;
 
+use Uspdev\Replicado\Pessoa;
+
 class PessoaController extends AbstractController
 {
     /**
@@ -14,8 +16,9 @@ class PessoaController extends AbstractController
      */
     public function servidoresTotalAtivos()
     {
+        $emails = Pessoa::emails('5385361');
         $response = new Response();
-        $response->setContent(json_encode([321312]));
+        $response->setContent(json_encode($emails));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
