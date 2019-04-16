@@ -16,9 +16,9 @@ class PessoaController extends AbstractController
      */
     public function servidoresTotalAtivos()
     {
-        $emails = Pessoa::emails('5385361');
+        $total = Pessoa::totalVinculo('Servidor', getenv('REPLICADO_UNIDADE'));
         $response = new Response();
-        $response->setContent(json_encode($emails));
+        $response->setContent(json_encode($total));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
@@ -29,8 +29,12 @@ class PessoaController extends AbstractController
      */
     public function docentesTotalAtivos()
     {
-        $response = [475];
-        return $this->json($response);
+        $total = Pessoa::totalVinculo('Docente', getenv('REPLICADO_UNIDADE'));
+        $response = new Response();
+        $response->setContent(json_encode($total));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
 
     /**
@@ -38,8 +42,12 @@ class PessoaController extends AbstractController
      */
     public function graduacaoTotalAtivos()
     {
-        $response = [455];
-        return $this->json($response);
+        $total = Pessoa::totalVinculo('Aluno de Graduação', getenv('REPLICADO_UNIDADE'));
+        $response = new Response();
+        $response->setContent(json_encode($total));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
 
     /**
