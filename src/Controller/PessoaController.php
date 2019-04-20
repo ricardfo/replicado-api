@@ -12,42 +12,27 @@ use Uspdev\Replicado\Pessoa;
 class PessoaController extends AbstractController
 {
     /**
-     * @Route("/pessoa/servidores/total/ativos", name="pessoa_servidores_total_ativos")
+     * @Route("/pessoa/vinculo/total/ativos/{tipvinext}", name="pessoa_vinculo_total_ativos")
      */
-    public function servidoresTotalAtivos()
+    public function totalVinculo($tipvinext)
     {
-        $emails = Pessoa::emails('5385361');
+        $total = Pessoa::totalVinculo($tipvinext, getenv('REPLICADO_UNIDADE'));
         $response = new Response();
-        $response->setContent(json_encode($emails));
+        $response->setContent(json_encode($total));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
-
     /**
-     * @Route("/pessoa/docentes/total/ativos", name="pessoa_docentes_total_ativos")
+     * @Route("/pessoa/pos/total/ativos/{nivpgm}", name="pessoa_pos_total_ativos")
      */
-    public function docentesTotalAtivos()
+    public function totalPosNivelPrograma($nivpgm)
     {
-        $response = [475];
-        return $this->json($response);
-    }
-
-    /**
-     * @Route("/pessoa/graduacao/total/ativos", name="pessoa_graduacao_total_ativos")
-     */
-    public function graduacaoTotalAtivos()
-    {
-        $response = [455];
-        return $this->json($response);
-    }
-
-    /**
-     * @Route("/pessoa/pos/total/ativos", name="pessoa_pos_total_ativos")
-     */
-    public function posTotalAtivos()
-    {
-        $response = [115];
-        return $this->json($response);
+        $total = Pessoa::totalPosNivelPrograma($nivpgm, getenv('REPLICADO_UNIDADE'));
+        $response = new Response();
+        $response->setContent(json_encode($total));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
 }

@@ -23,7 +23,6 @@ Exemplo de requisição:
 
 Endpoins disponíveis até o momento:
 
- - /pessoa/docentes/total/ativos: retorna total de docentes ativos na unidade
- - /pessoa/servidores/total/ativos: retorna total de servidores ativos na unidade
-
+ - /pessoa/vinculo/total/ativos/{tipvinext}: retorna total de vínculos ativos na unidade
+ - /pessoa/pos/total/ativos/{nivpgm}: retorna total de alunos matrículados no programa de pós da unidade de acordo com nível do programa.
 
