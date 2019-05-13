@@ -35,4 +35,17 @@ class PessoaController extends AbstractController
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
+
+    /**
+     * @Route("/pessoa/todos/vinculos/extenso", name="pessoa_todos_vinculos_extenso")
+     */
+    public function todosVinculosExtenso()
+    {
+        $todos = Pessoa::todosVinculosExtenso();
+        $response = new Response();
+        $response->setContent(json_encode($todos, JSON_UNESCAPED_UNICODE));
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
+    }
 }
